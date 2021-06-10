@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import "./App.css";
+import { useTrees } from "./";
 
+// import { TreesContext } from "./index"; //for createContext
+
+//for createContext
+// function App() {
+//   const { trees } = useContext(TreesContext);
+//   return (
+//     <div>
+//       <h1>Trees I have heard of:</h1>
+//       <ul>
+//         {trees.map((tree) => (
+//           <li key={tree.id}>{tree.type}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+//for useContext
 function App() {
+  const { trees } = useTrees();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Trees I have heard of:</h1>
+      <ul>
+        {trees.map((tree) => (
+          <li key={tree.id}>{tree.type}</li>
+        ))}
+      </ul>
     </div>
   );
 }
-
 export default App;
